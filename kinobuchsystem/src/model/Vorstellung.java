@@ -1,5 +1,7 @@
 package model;
 
+import javafx.print.PageLayout;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
@@ -87,7 +89,41 @@ public class Vorstellung {
 	 * @param platz
 	 */
 	//todo: Methode erstellen
-	/*public boolean isNextPlatzFree(Platz platz, Vorstellung vorstellung) {
+	public boolean isNextPlatzFree(Platz platz, Vorstellung vorstellung) {
+		Reihe zuBesetztendeReihe = null;
+		int zuBesetztendePosition = -1;
+		for(Reihe reihe : vorstellung.kinosaal.getReihen()){
+			for(Platz kinosaalPlatz : reihe.getPlaetze()){
+				if(kinosaalPlatz.getPlatzId() == platz.getPlatzId()){
+					zuBesetztendeReihe = reihe;
+					zuBesetztendePosition = reihe.getPlaetze().indexOf(platz);
+				}
+			}
+		}
+		//Reihe nicht gefunden
+		if(zuBesetztendeReihe == null || zuBesetztendePosition == -1){
+			return false;
+		}
+		else{
+			try {
+				//vorheriger Platz ist frei
+				if (IsReserviert(zuBesetztendeReihe.getPlaetze().get(zuBesetztendePosition - 1))) {
+					return true;
+				}
+			}
+			catch (Exception ex){
 
-	}*/
+			}
+			try {
+				//nächste Platz ist frei
+				if (IsReserviert(zuBesetztendeReihe.getPlaetze().get(zuBesetztendePosition + 1))) {
+					return true;
+				}
+			}//letzes element rührt einen Fehler raus
+			catch (Exception ex){}
+			//kein Platz ist näbendran frei
+			return false;
+		}
+	}
+
 }
