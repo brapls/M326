@@ -4,10 +4,9 @@ import java.util.ArrayList;
 
 public class Sammlung {
 
-	private ArrayList<Kinosaal> kinosaale;
-	private ArrayList<Besucher> besuchern;
-	private ArrayList<Vorstellung> vorstellungen;
-	private ArrayList<Reservierung> reservierungen;
+	private ArrayList<Kinosaal> kinosaale = new ArrayList<Kinosaal>();
+	private ArrayList<Besucher> besuchern = new ArrayList<Besucher>();
+	private ArrayList<Vorstellung> vorstellungen = new ArrayList<Vorstellung>();
 
 	public ArrayList<Kinosaal> getKinosaale() {
 		return this.kinosaale;
@@ -16,7 +15,6 @@ public class Sammlung {
 	public void setKinosaale(ArrayList<Kinosaal> kinosaale) {
 		this.kinosaale = kinosaale;
 	}
-
 	public ArrayList<Besucher> getBesuchern() {
 		return this.besuchern;
 	}
@@ -26,8 +24,7 @@ public class Sammlung {
 	}
 
 	public Sammlung() {
-		// TODO - implement model.Sammlung.model.Sammlung
-		throw new UnsupportedOperationException();
+
 	}
 
 }
