@@ -11,7 +11,7 @@ public class Vorstellung {
 	private Kinosaal kinosaal;
 	private Film film;
 	private LocalDateTime time;
-	private ArrayList<Reservierung> reservierungs = new ArrayList<>();
+	private ArrayList<Reservierung> reservationen = new ArrayList<>();
 
 	public Kinosaal getKinosaal() {
 		return this.kinosaal;
@@ -53,11 +53,11 @@ public class Vorstellung {
 		this.time = time;
 	}
 	public void AddReservierung(Reservierung reservierung){
-		this.reservierungs.add(reservierung);
+		this.reservationen.add(reservierung);
 	}
 	public void RemoveReservierung(Reservierung reservierung){
-		if(this.reservierungs.contains(reservierung)){
-			this.reservierungs.remove(reservierung);
+		if(this.reservationen.contains(reservierung)){
+			this.reservationen.remove(reservierung);
 		}
 		else{
 			System.out.println("Reservierung wurde nicht gefunden :,(");
@@ -65,7 +65,7 @@ public class Vorstellung {
 	}
 	public ArrayList<Reservierung> GetReservierung(Besucher besucher){
 		ArrayList<Reservierung> reservierungenVomBesucher = new ArrayList<>();
-		for(Reservierung bestehendeReservierung : this.reservierungs){
+		for(Reservierung bestehendeReservierung : this.reservationen){
 			if(bestehendeReservierung.getBesucher() == besucher){
 				reservierungenVomBesucher.add(bestehendeReservierung);
 			}
