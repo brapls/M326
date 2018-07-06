@@ -21,7 +21,7 @@ public class test {
         Assertions.assertEquals(besucher.getNachname(), "Nachname2");
     }
     @Test
-    public void i-,(){
+    public void testFilm(){
     Film film = new Film(1, "Titel", "Dauer");
         Assertions.assertEquals(film.getId().toString(), "1");
         Assertions.assertEquals(film.getTitel(), "Titel");
