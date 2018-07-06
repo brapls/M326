@@ -12,12 +12,17 @@ public class Reihe {
 		return this.plaetze;
 	}
 
+	public Reihe(){
+		id = 0;
+		plaetze = new ArrayList<>();
+	}
+
 	public void setPlaetze(ArrayList<Platz> plaetze) {
 		this.plaetze = plaetze;
 	}
 
 	/**
-	 * 
+	 *
 	 * @param platz
 	 */
 	public void add(Platz platz) {

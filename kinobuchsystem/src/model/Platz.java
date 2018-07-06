@@ -14,10 +14,10 @@ public class Platz {
 	}
 
 	public Platz() {
-
+		this.platzId = 0;
 	}
 	/**
-	 * 
+	 *
 	 * @param platzId
 	 */
 	public Platz(int platzId) {
