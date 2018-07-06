@@ -2,6 +2,7 @@ import model.Sammlung;
 import model.Vorstellung;
 import java.util.ArrayList;
 import java.util.Scanner;
+//Team 2
 
 public class Main {
     public static void main(String[] args) {

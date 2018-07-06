@@ -1,4 +1,5 @@
 package model;
+//Team 1
 
 import javafx.print.PageLayout;
 
@@ -119,7 +120,7 @@ public class Vorstellung {
 				if (IsReserviert(zuBesetztendeReihe.getPlaetze().get(zuBesetztendePosition + 1))) {
 					return true;
 				}
-			}//letzes element rührt einen Fehler raus
+			}//letzes Element rührt einen Fehler raus
 			catch (Exception ex){}
 			//kein Platz ist näbendran frei
 			return false;
