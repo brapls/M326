@@ -89,7 +89,6 @@ public class Vorstellung {
 	 *
 	 * @param platz
 	 */
-	//todo: Methode erstellen
 	public boolean isNextPlatzFree(Platz platz, Vorstellung vorstellung) {
 		Reihe zuBesetztendeReihe = null;
 		int zuBesetztendePosition = -1;
@@ -108,7 +107,7 @@ public class Vorstellung {
 		else{
 			try {
 				//vorheriger Platz ist frei
-				if (IsReserviert(zuBesetztendeReihe.getPlaetze().get(zuBesetztendePosition - 1))) {
+				if (!IsReserviert(zuBesetztendeReihe.getPlaetze().get(zuBesetztendePosition - 1))) {
 					return true;
 				}
 			}
@@ -117,7 +116,7 @@ public class Vorstellung {
 			}
 			try {
 				//nächste Platz ist frei
-				if (IsReserviert(zuBesetztendeReihe.getPlaetze().get(zuBesetztendePosition + 1))) {
+				if (!IsReserviert(zuBesetztendeReihe.getPlaetze().get(zuBesetztendePosition + 1))) {
 					return true;
 				}
 			}//letzes Element rührt einen Fehler raus
