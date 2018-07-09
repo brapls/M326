@@ -92,29 +92,31 @@ public class Kinobuchsystem {
 			ArrayList<Reihe> reihen = kinosaal.getReihen();
 			for (Reihe r : reihen) {
 				for (Platz p : r.getPlaetze()) {
+				    // Check if the place is already booked
+
 					System.out.println("Reihe id : " + reihen.indexOf(r) + " Platz id : " + p.getPlatzId());
 				}
 			}
-			System.out.println("Geben sie bitte den Reihe und Platz id");
-			String value = readLineString();
-			value = value.replace(" ", "");
-			Character charReihe = value.charAt(0);
-			// does not work
-			Integer iReihe = Integer.parseInt(String.valueOf(charReihe));
-			Character charPlatz = value.charAt(1);
-			// does not work
-			Integer iPlatz = Integer.parseInt(String.valueOf(charPlatz));
+			System.out.println("Anzahl Plätze eingeben");
+			Integer anzPlaetze = readLineInt();
 
-			Platz platz = reihen.get(iReihe).getPlaetze().get(iPlatz);
-			if(platz != null){
-				Reservierung reservierung = new Reservierung();
-				reservierung.setPlatz(platz);
-				reservierung.setBesucher(new Besucher());
-				System.out.println("Reservierung wurde erzeugt");
-			} else {
-				System.out.println("Falsch");
-			}
-
+			for (int i = 0; i < anzPlaetze; i++){
+                System.out.println("Geben Sie bitte den Reihe und Platz id");
+                String value = readLineString();
+                value = value.replace(" ", "");
+                Integer iReihe = Integer.parseInt(String.valueOf(value.charAt(0)));
+                Integer iPlatz = Integer.parseInt(String.valueOf(value.charAt(1)));
+                Platz platz = reihen.get(iReihe).getPlaetze().get(iPlatz);
+                if(platz != null){
+                    Reservierung reservierung = new Reservierung();
+                    reservierung.setPlatz(platz);
+                    reservierung.setBesucher(new Besucher());
+                    System.out.println("Reservierung für platz " + platz.getPlatzId() + " wurde gespeichert.");
+                } else {
+                    System.out.println("Falsch");
+                }
+                System.out.println();
+            }
 		}
 		catch (Exception ex){
 			System.out.println("Diese vorstellung ist nicht definiert.");
