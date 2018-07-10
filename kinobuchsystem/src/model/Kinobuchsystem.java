@@ -46,10 +46,10 @@ public class Kinobuchsystem {
 			k.add(reihe);
 		}
 
-		Film f = movieFactory.getInstance().createMovie("Titel 1","80 min");
+		Film f = movieFactory.getInstance().createMovie("Iron Man 5","80 min");
 		Vorstellung v = new Vorstellung();
 		v.setFilm(f);
-		v.setTime(LocalDateTime.now());
+		v.setTime(LocalDateTime.of(2018, 6,9,17,15));
 		v.setKinosaal(k);
 		sammlung.addVorstellung(v);
 
@@ -60,7 +60,7 @@ public class Kinobuchsystem {
 			k2.add(reihe);
 		}
 
-		Film f2 = movieFactory.getInstance().createMovie("Titel 2","60 min");
+		Film f2 = movieFactory.getInstance().createMovie("Batman 8","60 min");
 		Vorstellung v2 = new Vorstellung();
 		v2.setFilm(f2);
 		v2.setTime(LocalDateTime.of(1990, 2,2,3,4));
@@ -69,8 +69,17 @@ public class Kinobuchsystem {
 
 		ArrayList<Vorstellung> vorstellungs = sammlung.getVorstellungen();
 		for (Vorstellung vorstellung : vorstellungs) {
-			System.out.println(vorstellungs.indexOf(vorstellung) + " " + vorstellung.getFilm().getTitel() + " " + vorstellung.getTime());
+			System.out.println(
+			        vorstellungs.indexOf(vorstellung) +
+                    "\t" +
+                    vorstellung.getFilm().getTitel() +
+                    "\t\t" +
+                    vorstellung.getTime() +
+                    "\t" +
+                    "Dauer der Vorstellung: " +
+                    vorstellung.getFilm().getDauer());
 		}
+
 		System.out.println("Vorstellung auswählen");
 		Integer chosenVorstellung = readLineInt();
 		try {
@@ -82,14 +91,14 @@ public class Kinobuchsystem {
 				for (Platz p : r.getPlaetze()) {
 				    // Check if the place is already booked
 
-					System.out.println("Reihe id : " + reihen.indexOf(r) + " Platz id : " + p.getPlatzId());
+					System.out.println("Reihe Id : " + reihen.indexOf(r) + " Platz Id : " + p.getPlatzId());
 				}
 			}
 			System.out.println("Anzahl Plätze eingeben");
 			Integer anzPlaetze = readLineInt();
 
 			for (int i = 0; i < anzPlaetze; i++){
-                System.out.println("Geben Sie bitte den Reihe und Platz id");
+                System.out.println("Geben Sie bitte den Reihe und Platz Id");
                 String value = readLineString();
                 value = value.replace(" ", "");
                 Integer iReihe = Integer.parseInt(String.valueOf(value.charAt(0)));
@@ -99,7 +108,7 @@ public class Kinobuchsystem {
                     Reservierung reservierung = new Reservierung();
                     reservierung.setPlatz(platz);
                     reservierung.setBesucher(new Besucher());
-                    System.out.println("Reservierung für platz " + platz.getPlatzId() + " wurde gespeichert.");
+                    System.out.println("Reservierung für Platz " + platz.getPlatzId() + " wurde gespeichert.");
                 } else {
                     System.out.println("Falsch");
                 }
@@ -107,7 +116,7 @@ public class Kinobuchsystem {
             }
 		}
 		catch (Exception ex){
-			System.out.println("Diese vorstellung ist nicht definiert.");
+			System.out.println("Diese Vorstellung ist nicht definiert.");
 		}
 	}
 
