@@ -47,9 +47,6 @@ public class Kinobuchsystem {
 		}
 
 		Film f = movieFactory.getInstance().createMovie("Titel 1","80 min");
-		f.setId(1);
-		f.setTitel("Titel 1");
-		f.setDauer("80 min");
 		Vorstellung v = new Vorstellung();
 		v.setFilm(f);
 		v.setTime(LocalDateTime.now());
@@ -64,9 +61,6 @@ public class Kinobuchsystem {
 		}
 
 		Film f2 = movieFactory.getInstance().createMovie("Titel 2","60 min");
-		f2.setId(2);
-		f2.setTitel("Titel 2");
-		f2.setDauer("60 min");
 		Vorstellung v2 = new Vorstellung();
 		v2.setFilm(f2);
 		v2.setTime(LocalDateTime.of(1990, 2,2,3,4));
@@ -75,7 +69,7 @@ public class Kinobuchsystem {
 
 		ArrayList<Vorstellung> vorstellungs = sammlung.getVorstellungen();
 		for (Vorstellung vorstellung : vorstellungs) {
-			System.out.println(vorstellungs.indexOf(vorstellung) + " " + v.getFilm().getTitel() + " " + v.getTime());
+			System.out.println(vorstellungs.indexOf(vorstellung) + " " + vorstellung.getFilm().getTitel() + " " + vorstellung.getTime());
 		}
 		System.out.println("Vorstellung auswählen");
 		Integer chosenVorstellung = readLineInt();
