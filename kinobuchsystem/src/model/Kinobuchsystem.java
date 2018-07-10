@@ -40,47 +40,58 @@ public class Kinobuchsystem {
 	public static void main(String[] args){
 		Sammlung sammlung = new Sammlung();
 
-		Kinosaal k = new Kinosaal();
+		Kinosaal Kinosaal1 = new Kinosaal();
 		for (int i = 0; i < 10; i++){
 			Reihe reihe = reiheFactory.getInstance().createReihe(10);
-			k.add(reihe);
+            Kinosaal1.add(reihe);
 		}
 
 		Film f = movieFactory.getInstance().createMovie("Iron Man 5","80 min");
 		Vorstellung v = new Vorstellung();
 		v.setFilm(f);
 		v.setTime(LocalDateTime.of(2018, 6,9,17,15));
-		v.setKinosaal(k);
+		v.setKinosaal(Kinosaal1);
 		sammlung.addVorstellung(v);
 
-		Kinosaal k2 = new Kinosaal();
+		Kinosaal Kinosaal2 = new Kinosaal();
 		for (int i = 0; i < 5; i++) {
 			Reihe reihe = reiheFactory.getInstance().createReihe(5);
 
-			k2.add(reihe);
+            Kinosaal2.add(reihe);
 		}
 
 		Film f2 = movieFactory.getInstance().createMovie("Batman 8","60 min");
 		Vorstellung v2 = new Vorstellung();
 		v2.setFilm(f2);
 		v2.setTime(LocalDateTime.of(1990, 2,2,3,4));
-		v2.setKinosaal(k2);
+		v2.setKinosaal(Kinosaal2);
 		sammlung.addVorstellung(v2);
 
 		ArrayList<Vorstellung> vorstellungs = sammlung.getVorstellungen();
+        System.out.println(
+                "Id" +
+                        "\t" +
+                        "Filmtitel" +
+                        "\t\t" +
+                        "Zeitpunkt" +
+                        "\t\t\t" +
+                        "Dauer der Vorstellung" +
+                        "\n" +
+                        "-------------------------------------------------------------"
+        );
 		for (Vorstellung vorstellung : vorstellungs) {
-			System.out.println(
-			        vorstellungs.indexOf(vorstellung) +
-                    "\t" +
-                    vorstellung.getFilm().getTitel() +
-                    "\t\t" +
-                    vorstellung.getTime() +
-                    "\t" +
-                    "Dauer der Vorstellung: " +
-                    vorstellung.getFilm().getDauer());
-		}
+            System.out.println(
+                    vorstellungs.indexOf(vorstellung) +
+                            "\t" +
+                            vorstellung.getFilm().getTitel() +
+                            "\t\t" +
+                            vorstellung.getTime() +
+                            "\t" +
+                            vorstellung.getFilm().getDauer()
+            );
+        }
 
-		System.out.println("Vorstellung auswählen");
+		System.out.println( "\n" + "Vorstellungs Id auswählen: ");
 		Integer chosenVorstellung = readLineInt();
 		try {
 			Vorstellung vorsetellung = vorstellungs.get(chosenVorstellung);
@@ -91,7 +102,7 @@ public class Kinobuchsystem {
 				for (Platz p : r.getPlaetze()) {
 				    // Check if the place is already booked
 
-					System.out.println("Reihe Id : " + reihen.indexOf(r) + " Platz Id : " + p.getPlatzId());
+					System.out.println("Reihe Id : " + reihen.indexOf(r) + "\t" + "Platz Id : " + p.getPlatzId());
 				}
 			}
 			System.out.println("Anzahl Plätze eingeben");
