@@ -3,7 +3,7 @@ import model.Vorstellung;
 import java.util.ArrayList;
 import java.util.Scanner;
 //Team 2
-
+/*
 public class Main {
     public static void main(String[] args) {
       Sammlung sammlung = new Sammlung();
@@ -34,3 +34,4 @@ public class Main {
       return input;
     }
 }
+*/

@@ -1,13 +1,13 @@
 import model.*;
-import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.Test;
+//import org.junit.jupiter.api.Assertions;
+//import org.junit.jupiter.api.Test;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 
 /**
  * Created by brian on 06.07.2018.
- */
+ *//*
 public class test {
     //Get and Set of the attributes in the class Besucher
     @Test
@@ -152,3 +152,4 @@ public class test {
         Assertions.assertEquals(2, sammlung.getVorstellungen().size());
     }
 }
+*/

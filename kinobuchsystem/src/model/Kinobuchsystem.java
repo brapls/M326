@@ -1,6 +1,9 @@
 package model;
 //Team 2
 
+import factory.movieFactory;
+import factory.reiheFactory;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -39,19 +42,14 @@ public class Kinobuchsystem {
 
 		Kinosaal k = new Kinosaal();
 		for (int i = 0; i < 10; i++){
-			Reihe reihe = new Reihe();
-			for (int y = 0; y < 10; y++){
-				Platz p = new Platz();
-				p.setPlatzId(y);
-				reihe.add(p);
-			}
+			Reihe reihe = reiheFactory.getInstance().createReihe(10);
 			k.add(reihe);
 		}
 
-		Film f = new Film();
+		Film f = movieFactory.getInstance().createMovie("Titel 1","80 min");
 		f.setId(1);
 		f.setTitel("Titel 1");
-		f.setDauer("60 min");
+		f.setDauer("80 min");
 		Vorstellung v = new Vorstellung();
 		v.setFilm(f);
 		v.setTime(LocalDateTime.now());
@@ -59,17 +57,13 @@ public class Kinobuchsystem {
 		sammlung.addVorstellung(v);
 
 		Kinosaal k2 = new Kinosaal();
-		for (int i = 0; i < 5; i++){
-			Reihe reihe = new Reihe();
-			for (int y = 0; y < 5; y++){
-				Platz p = new Platz();
-				p.setPlatzId(y);
-				reihe.add(p);
-			}
+		for (int i = 0; i < 5; i++) {
+			Reihe reihe = reiheFactory.getInstance().createReihe(5);
+
 			k2.add(reihe);
 		}
 
-		Film f2 = new Film();
+		Film f2 = movieFactory.getInstance().createMovie("Titel 2","60 min");
 		f2.setId(2);
 		f2.setTitel("Titel 2");
 		f2.setDauer("60 min");

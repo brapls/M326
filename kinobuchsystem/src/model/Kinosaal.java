@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Kinosaal {
 
-	private ArrayList<Reihe> reihen;
+	private ArrayList<Reihe> reihen=new ArrayList<>();
 
 	public ArrayList<Reihe> getReihen() {
 		return this.reihen;
