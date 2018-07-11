@@ -40,6 +40,7 @@ public class Kinobuchsystem {
 	public static void main(String[] args){
 		Sammlung sammlung = new Sammlung();
 
+		// Erstellen der ersten Vorstellung
 		Kinosaal Kinosaal1 = new Kinosaal();
 		for (int i = 0; i < 10; i++){
 			Reihe reihe = reiheFactory.getInstance().createReihe(10);
@@ -53,6 +54,7 @@ public class Kinobuchsystem {
 		v.setKinosaal(Kinosaal1);
 		sammlung.addVorstellung(v);
 
+		// Erstellen der zweiten Vorstellung
 		Kinosaal Kinosaal2 = new Kinosaal();
 		for (int i = 0; i < 5; i++) {
 			Reihe reihe = reiheFactory.getInstance().createReihe(5);
@@ -66,6 +68,37 @@ public class Kinobuchsystem {
 		v2.setTime(LocalDateTime.of(1990, 2,2,3,4));
 		v2.setKinosaal(Kinosaal2);
 		sammlung.addVorstellung(v2);
+
+		// Erstellen der dritten Vorstellung
+		Kinosaal Kinosaal3 = new Kinosaal();
+		for (int i = 0; i < 5; i++) {
+			Reihe reihe = reiheFactory.getInstance().createReihe(8);
+
+			Kinosaal3.add(reihe);
+		}
+
+		Film f3 = movieFactory.getInstance().createMovie("Avengers 42","120 min");
+		Vorstellung v3 = new Vorstellung();
+		v3.setFilm(f3);
+		v3.setTime(LocalDateTime.of(2038, 5,6,20,15));
+		v3.setKinosaal(Kinosaal3);
+		sammlung.addVorstellung(v3);
+
+		// Erstellen der vierten Vorstellung
+		Kinosaal Kinosaal4 = new Kinosaal();
+		for (int i = 0; i < 5; i++) {
+			Reihe reihe = reiheFactory.getInstance().createReihe(6);
+
+			Kinosaal4.add(reihe);
+		}
+
+		Film f4 = movieFactory.getInstance().createMovie("Avatar 2","100 min");
+		Vorstellung v4 = new Vorstellung();
+		v4.setFilm(f4);
+		v4.setTime(LocalDateTime.of(2040, 4,12,20,00));
+		v4.setKinosaal(Kinosaal4);
+		sammlung.addVorstellung(v4);
+
 
 		ArrayList<Vorstellung> vorstellungs = sammlung.getVorstellungen();
         System.out.println(
