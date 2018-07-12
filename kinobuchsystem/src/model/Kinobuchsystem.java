@@ -58,7 +58,6 @@ public class Kinobuchsystem {
 		Kinosaal Kinosaal2 = new Kinosaal();
 		for (int i = 0; i < 5; i++) {
 			Reihe reihe = reiheFactory.getInstance().createReihe(5);
-
             Kinosaal2.add(reihe);
 		}
 
@@ -73,7 +72,6 @@ public class Kinobuchsystem {
 		Kinosaal Kinosaal3 = new Kinosaal();
 		for (int i = 0; i < 5; i++) {
 			Reihe reihe = reiheFactory.getInstance().createReihe(8);
-
 			Kinosaal3.add(reihe);
 		}
 
@@ -88,7 +86,6 @@ public class Kinobuchsystem {
 		Kinosaal Kinosaal4 = new Kinosaal();
 		for (int i = 0; i < 5; i++) {
 			Reihe reihe = reiheFactory.getInstance().createReihe(6);
-
 			Kinosaal4.add(reihe);
 		}
 
@@ -128,21 +125,26 @@ public class Kinobuchsystem {
 		Integer chosenVorstellung = readLineInt();
 		try {
 			Vorstellung vorsetellung = vorstellungs.get(chosenVorstellung);
-			System.out.println("Sitzplatz auswählen");
+			System.out.println("Sitzplatz auswählen: " + "\n");
 			Kinosaal kinosaal = vorsetellung.getKinosaal();
 			ArrayList<Reihe> reihen = kinosaal.getReihen();
+			int x = 1;
 			for (Reihe r : reihen) {
+				System.out.println("Reihe " + x);
+				System.out.println("----------------------------");
+				x++;
 				for (Platz p : r.getPlaetze()) {
 				    // Check if the place is already booked
 
 					System.out.println("Reihe Id : " + reihen.indexOf(r) + "\t" + "Platz Id : " + p.getPlatzId());
 				}
+				System.out.println("\n");
 			}
-			System.out.println("Anzahl Plätze eingeben");
+			System.out.println("Anzahl Plätze eingeben: ");
 			Integer anzPlaetze = readLineInt();
 
 			for (int i = 0; i < anzPlaetze; i++){
-                System.out.println("Geben Sie bitte den Reihe und Platz Id");
+                System.out.println("Geben Sie bitte den Reihe und Platz Id: ");
                 String value = readLineString();
                 value = value.replace(" ", "");
                 Integer iReihe = Integer.parseInt(String.valueOf(value.charAt(0)));
