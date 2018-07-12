@@ -128,11 +128,11 @@ public class Kinobuchsystem {
 			System.out.println("Sitzplatz auswählen: " + "\n");
 			Kinosaal kinosaal = vorsetellung.getKinosaal();
 			ArrayList<Reihe> reihen = kinosaal.getReihen();
-			int x = 1;
+			int reihennummer = 1;
 			for (Reihe r : reihen) {
-				System.out.println("Reihe " + x);
+				System.out.println("Reihe " + reihennummer);
 				System.out.println("----------------------------");
-				x++;
+				reihennummer++;
 				for (Platz p : r.getPlaetze()) {
 				    // Check if the place is already booked
 
